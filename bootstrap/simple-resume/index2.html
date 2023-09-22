@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <style>
+      :root {
+        --blue: #257cfd;
+        --dark-gray: #343a40;
+      }
+
+      body {
+        font-family: "Roboto";
+        padding: 0;
+        margin: 0;
+        /* min-height: 100vh;
+        margin-bottom: 150px; */
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      header {
+        background-color: var(--blue);
+        padding: 30px 10px;
+        color: white;
+      }
+
+      nav {
+        background-color: var(--dark-gray);
+        padding: 15px;
+        color: white;
+      }
+
+      .contact {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      footer {
+        padding: 15px;
+        background-color: var(--dark-gray);
+        text-align: center;
+        color: white;
+        /* position: fixed;
+        bottom: 0px; */
+        /* width: 100%; */
+        margin-top: 100px;
+      }
+
+      .list-title {
+        color: var(--blue);
+      }
+
+      .about {
+        display: flex;
+        gap: 15px;
+        flex-direction: row;
+      }
+      .about h1 {
+        margin: 10px 0 10px 0;
+      }
+      .about h3 {
+        margin: 10px 0;
+      }
+
+      .about img {
+        border-radius: 83px;
+      }
+
+      .row {
+        width: 100%;
+      }
+      .row .col {
+        vertical-align: top;
+        display: inline-block;
+        width: 49%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      @media screen and (max-width: 768px) {
+        .row .col {
+          width: 100%;
+        }
+
+        .about {
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+
+      .progress {
+        margin: 15px 0;
+        width: 100%;
+        border-radius: 5px;
+        background-color: #e9ecef;
+      }
+
+      .progress .bar {
+        border-radius: 5px 0px 0px 5px;
+        background-color: var(--blue);
+        color: white;
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+      .description p {
+        text-align: left;
+      }
+
+      .flex-container {
+        /* We first create a flex layout context */
+        display: flex;
+        flex-flow: row wrap;
+        /* Then we define how is distributed the remaining space */
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+      }
+
+      .item {
+        /* background: tomato; */
+        padding: 5px;
+        width: 200px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="about">
+          <div>
+            <img src="https://i.pravatar.cc/175?img=32" style="width: 175px" />
+          </div>
+
+          <div class="description">
+            <h1>Alexandru Țîncu</h1>
+            <h3>Software developer</h3>
+            <hr />
+            <p>
+              Phasellus et tellus iaculis, interdum augue vel, luctus nulla.
+              Aenean viverra, magna a ultricies elementum, dui mi tristique
+              ligula, non euismod leo mauris ac metus. Phasellus et tellus
+              iaculis, interdum augue vel, luctus nulla. Aenean viverra, magna a
+              ultricies elementum, dui mi tristique ligula, non euismod leo
+              mauris ac metus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <div class="container">
+        <div class="contact">
+          <div>website</div>
+          <div>
+            <i class="bi bi-briefcase-fill text-success"></i> &nbsp;
+            email@email.com
+          </div>
+          <div>phone</div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <br />
+        <div class="row">
+          <div class="col col-md">
+            <h1>Work Experience</h1>
+            <ul>
+              <li>
+                <h3 class="list-title">
+                  Senior Web Developer / Digital Agency 2016-2020
+                </h3>
+                <p>
+                  Phasellus et tellus iaculis, interdum augue vel, luctus nulla.
+                  Aenean viverra, magna a ultricies elementum, dui mi tristique
+                  ligula, non euismod leo mauris ac metus.
+                </p>
+              </li>
+              <li>
+                <h3 class="list-title">
+                  Senior Web Developer / Digital Agency 2016-2020
+                </h3>
+                <p>
+                  Phasellus et tellus iaculis, interdum augue vel, luctus nulla.
+                  Aenean viverra, magna a ultricies elementum, dui mi tristique
+                  ligula, non euismod leo mauris ac metus.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="col col-md">
+            <h1>Education</h1>
+            <ul>
+              <li>
+                <h3 class="list-title">
+                  Computer Science / University Name 2001-2004
+                </h3>
+                <p>
+                  Phasellus et tellus iaculis, interdum augue vel, luctus nulla.
+                  Aenean viverra, magna a ultricies elementum, dui mi tristique
+                  ligula, non euismod leo mauris ac metus.
+                </p>
+              </li>
+              <li>
+                <h3 class="list-title">
+                  Computer Science / University Name 2001-2004
+                </h3>
+                <p>
+                  Phasellus et tellus iaculis, interdum augue vel, luctus nulla.
+                  Aenean viverra, magna a ultricies elementum, dui mi tristique
+                  ligula, non euismod leo mauris ac metus.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col col-md">
+            <h1>Skills</h1>
+
+            <div class="progress">
+              <div class="bar" style="width: 85%">HTML</div>
+            </div>
+            <div class="progress">
+              <div class="bar" style="width: 65%">CSS</div>
+            </div>
+            <div class="progress">
+              <div class="bar" style="width: 90%">GIT</div>
+            </div>
+          </div>
+          <div class="col col-md">
+            <h1>My work</h1>
+
+            <div class="flex-container">
+              <div class="item">
+                <img src="https://i.pravatar.cc/175?img=32" />
+              </div>
+              <div class="item">
+                <img src="https://i.pravatar.cc/175?img=32" />
+              </div>
+              <div class="item">
+                <img src="https://i.pravatar.cc/175?img=32" />
+              </div>
+              <div class="item">
+                <img src="https://i.pravatar.cc/175?img=32" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>footer</footer>
+  </body>
+</html>
