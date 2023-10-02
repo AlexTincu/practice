@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://www.w3schools.com/howto/howto_css_contact_section.asp -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+</head>
+
+<body class="align-items-center d-flex" style="min-height: 100vh">
+    <div class="container col-xxl-6 col-lg-8 col-md-10 col-sm-12">
+        <div class="card">
+            <div class="card-body" style="background-color: #f2f2f2">
+                <div class="text-center">
+                    <h3>Contact Us</h3>
+                    Swing by for a cup of coffee, or leave us a message:
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col">
+                        <img src="https://www.w3schools.com/w3images/map.jpg" alt="Map" style="width: 100%" />
+                    </div>
+                    <div class="col">
+                        <form action="contact.js" method="GET">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input name="name" id="name" class="form-control" required/>
+
+                            <label for="email" class="form-label mt-2">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" required />
+
+                            <label for="country" class="form-label mt-2">Country</label>
+                            <select class="form-select" aria-label="Country" name="country" required>
+                                <option value="">Open this select menu</option>
+                                <option value="ro">Romania</option>
+                                <option value="md">Moldova</option>
+                                <option value="ar">Argentina</option>
+                            </select>
+
+                            <label for="message" class="form-label mt-2">Message</label>
+                            <textarea rows="6" name="message" id="message" class="form-control" required
+                                placeholder="Write here"></textarea>
+
+                            <button class="btn btn-primary mt-3" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
