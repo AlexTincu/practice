@@ -33,4 +33,6 @@ Scrie o funcție care primește un array de numere și returnează un nou array 
 Scrie o funcție care primește un array de numere și returnează un nou array care conține doar 
 numerele pare, folosind metoda filter().    
 
+10. Scrie o funcție care calculeaza suma elementelor unei matrici (array multidimensional)
+
 */
