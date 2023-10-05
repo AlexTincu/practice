@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sum() {
+        let numbers = [];
+
+        while (true) {
+          let number = prompt("Give me an integer number!");
+
+          if (number == "" || number == null || !isFinite(number)) break;
+
+          numbers.push(parseInt(number));
+          //   numbers.push(+number);
+        }
+
+        let sum = 0;
+        for (let number of numbers) {
+          sum += number;
+          // sum = sum + number
+        }
+
+        return sum;
+      }
+
+      alert(sum());
+    </script>
+  </body>
+</html>
