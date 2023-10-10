@@ -36,3 +36,32 @@ numerele pare, folosind metoda filter().
 10. Scrie o funcție care calculeaza suma elementelor unei matrici (array multidimensional)
 
 */
+
+const array = [1,2,2,3,2, 'name', 'email', 'name'];
+
+// get unique values from an array 
+function removeDuplicates(array){
+    const result = {};
+    for(let item of array){
+        result[item] = item;
+    }
+
+    return Object.values(result);
+}
+
+// get unique values from an array, the simple solution
+function removeDuplicates2(array){
+    return Array.from(new Set(array));
+}
+
+// console.log(removeDuplicates2(array));
+
+const array1 = [1, 2, 3];
+const array2 = ['a','b'];
+// destructuring arrays
+const array3 = [...array1, ...array2];
+console.log(array3);
+
+// const obj = {name:'Alex', age:'30'};
+// console.log(...obj);
+
