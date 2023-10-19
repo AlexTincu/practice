@@ -3,7 +3,10 @@
 // "object literal" syntax
 let user = {
     name: 'Alex',
-    age: 30
+    age: 37,
+    getBirthdate() {
+        return new Date().getFullYear() - this.age;
+    }
 }
 
 // Constructor function for User objects
@@ -13,7 +16,7 @@ function User(name, age) {
 }
 const user2 = new User("John Doe", 50);
 
-// console.log(`${user.name} are ${user.age} de ani.`);
+console.log(`${user.name} are ${user.age} de ani. S-a nascut in ${user.getBirthdate()}`);
 
 // adaugare proprietate
 user.address = "Bucuresti";
