@@ -25,9 +25,9 @@ console.log(b);
 console.log(rest);
 // Expected output: Array [30, 40, 50]
 
-
+// destructurare cu redenumirea variabilelor
 const obj = { a: 1, b: 2 };
-const { a, b } = obj;
+const { a: first, b: second } = obj;
 // is equivalent to:
-// const a = obj.a;
-// const b = obj.b;
+// const first = obj.a;
+// const second = obj.b;

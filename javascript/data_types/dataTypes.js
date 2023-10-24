@@ -76,10 +76,10 @@ if (!x3) {
 }
 
 // coercion => conversie implicita
-// console.log("5" + 5);
+// console.log("5" + 5); // Output: 55
 
 // type conversion / typecasting => conversie explicita
-// console.log(parseInt("5"));
+// console.log(parseInt("5")); Output: 5
 
 console.log(typeof [1, 2, 3, 4]);
 console.log([1, 2, 3, 4] instanceof Array);
