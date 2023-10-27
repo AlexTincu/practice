@@ -14,10 +14,11 @@ let putere = Math.pow(2, 3); // 2 la puterea 3
 let text = '123';
 let numar = parseInt(text);
 // let numar = +text; // alternativa mai scurta
+let numarFloat = parseFloat('123.45');
 
 // Generarea unui număr aleatoriu între două limite:
 let numarAleatoriu = Math.random(); // între 0 și 1
-let numarAleatoriuIntreg = Math.floor(Math.random() * 10); // între 0 și 9
+let numarAleatoriuIntreg = Math.floor(Math.random() * 10); // între [0 și 10)
 let numarAleatoriuInterval = Math.floor(Math.random() * (max - min + 1)) + min; // între min și max
 
 // Rotunjirea unui număr:

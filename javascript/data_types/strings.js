@@ -5,6 +5,7 @@ let paragraf = `Acesta este un paragraf.`;
 // concatenare
 let numeComplet = nume + ' Smith';
 let salut = mesaj.concat(' Cum te simți?');
+let salut2 = `${mesaj} Cum te simți?`;
 
 // charAt
 let primulCaracter = nume.charAt(0);

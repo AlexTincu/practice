@@ -88,7 +88,7 @@ console.log(sum(...values)); // SPREAD
 // 1 SPREAD
 const arr = [3, 4];
 const array = [1, 2, ...arr];
-console.log(array);
+console.log(array); // Output: [1, 2, 3, 4]
 
 // 2 REST
 const [a, b, ...others] = array;

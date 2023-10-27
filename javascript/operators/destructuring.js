@@ -3,7 +3,6 @@ The destructuring assignment syntax is a JavaScript expression that makes it pos
 or properties from objects, into distinct variables.
 */
 const foo = ["one", "two"];
-
 const [red, yellow, green, blue] = foo;
 console.log(red); // "one"
 console.log(yellow); // "two"
@@ -13,6 +12,9 @@ console.log(blue); // undefined
 
 let a, b, rest;
 [a, b] = [10, 20];
+
+// schimbarea valorilor intre a si b
+[a, b] = [b, a];
 
 console.log(a);
 // Expected output: 10

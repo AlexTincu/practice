@@ -1,4 +1,4 @@
-// copierea unui array intr-un alt array| shallow copy
+// copierea unui array intr-un alt array | shallow copy
 const array1 = [1, 2, 3];
 const array2 = [...array1];
 console.log(array2); // Output: [1, 2, 3]
