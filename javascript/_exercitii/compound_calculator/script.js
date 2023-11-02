@@ -65,8 +65,31 @@ function calculate() {
     tableHtml += `<tr><td>${item.year}</td><td>${item.result}</td></tr>`;
   });
   tableHtml += "</table>";
-
   document.getElementById("result").innerHTML = finalResultText + tableHtml;
+
+  /*
+  // alternativa
+  const table = document.createElement("table");
+  table.classList.add("table", "table-striped");
+  const trElem = document.createElement("tr");
+  const tdElem = document.createElement("td");
+  tdElem.textContent = "Year";
+  trElem.append(tdElem);
+  trElem.append((tdElem.cloneNode().textContent = "Amount"));
+  table.append(trElem);
+
+  resultByYear.forEach((item) => {
+    const trElem = document.createElement("tr");
+    const tdElem = document.createElement("td");
+    tdElem.textContent = item.year;
+
+    trElem.append(tdElem);
+    trElem.append((tdElem.cloneNode().textContent = item.result));
+    table.append(trElem);
+  });
+
+  document.getElementById("result").append(table);
+  */
 
   resultElem.classList.remove("d-none");
 }

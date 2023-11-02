@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>The JavaScript <i>this</i> Keyword</h1>
+
+    <button id="myButton">Click to Remove Me!</button>
+  </body>
+
+  <script>
+    // Obținem referința către elementul HTML cu id-ul "myButton"
+    const myButton = document.getElementById("myButton");
+
+    // Definim o funcție care va fi apelată atunci când butonul este apăsat
+    function buttonClickHandler(event) {
+      console.log("Butonul a fost apăsat!");
+      // console.log(event.target);
+
+      this.style.display = "none";
+      // event.target.style.display = "none"; // similar
+    }
+
+    // Adăugăm un event listener pentru evenimentul "click" al butonului
+    myButton.addEventListener("click", buttonClickHandler);
+  </script>
+</html>

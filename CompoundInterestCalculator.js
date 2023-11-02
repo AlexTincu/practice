@@ -21,7 +21,7 @@ const calculate = function (params) {
     depositFrequency,
   } = params;
 
-  let rate = annualRate / 100;
+  let rate = annualRate / 100; // transform it to a percent value
   if (depositFrequency === "monthly") {
     rate = rate / 12;
   }
@@ -32,7 +32,7 @@ const calculate = function (params) {
     if (depositFrequency === "monthly") {
       for (let i = 1; i <= 12; i++) {
         const interest = total * rate;
-        total += periodicDeposit + interest;
+        total += periodicDeposit + interest; // cat am depus lunar + rata
       }
     } else {
       const interest = total * rate;
