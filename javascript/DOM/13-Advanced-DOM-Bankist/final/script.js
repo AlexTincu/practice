@@ -46,8 +46,9 @@ document.querySelector('.header').prepend(message); // la inceput
 // message.remove();
 
 message.querySelector('.btn').addEventListener('click', e => {
-  message.remove();
-  // e.target.remove();
+  // e.target este butonul si parentElement este divul care il contine
+  e.target.parentElement.remove();
+  // message.remove(); // sau mai simplu asa
 });
 
 // returneaza toate proprietatile CSS
