@@ -11,6 +11,7 @@ const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
 
+/*
 // primim primul element care se potriveste cautarii
 const button = document.querySelector('.btn--show-modal');
 
@@ -73,9 +74,10 @@ console.log(document.documentElement.parentElement); // null
 
 ///////////////////////////////////////
 // Modal window
+*/
 
 const openModal = function (e) {
-  e.preventDefault();
+  // e.preventDefault();
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -96,6 +98,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+/*
 ///////////////////////////////////////
 // Button scrolling
 btnScrollTo.addEventListener('click', function (e) {
@@ -126,13 +129,15 @@ btnScrollTo.addEventListener('click', function (e) {
 
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+*/
 
 ///////////////////////////////////////
 // Page navigation
+// console.log(document.querySelectorAll('.nav__link'));
 
 // document.querySelectorAll('.nav__link').forEach(function (el) {
 //   el.addEventListener('click', function (e) {
-//     e.preventDefault();
+//     // e.preventDefault();
 //     const id = this.getAttribute('href');
 //     console.log(id);
 //     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
@@ -152,9 +157,19 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
+// Sticky navigation
+// const initialCoords = section1.getBoundingClientRect();
+// console.log(initialCoords);
+
+// window.addEventListener('scroll', function () {
+//   console.log(window.scrollY);
+
+//   if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
+
 ///////////////////////////////////////
 // Tabbed component
-
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
 
@@ -215,10 +230,10 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 
 headerObserver.observe(header);
 
+/*
 ///////////////////////////////////////
 // Reveal sections
 const allSections = document.querySelectorAll('.section');
-
 const revealSection = function (entries, observer) {
   const [entry] = entries;
 
@@ -237,6 +252,7 @@ allSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+*/
 
 // Lazy loading images
 const imgTargets = document.querySelectorAll('img[data-src]');
@@ -443,7 +459,7 @@ logo.classList.toggle('c');
 logo.classList.contains('c'); // not includes
 
 // Don't use
-logo.clasName = 'jonas';
+logo.className = 'jonas';
 
 
 ///////////////////////////////////////
@@ -458,9 +474,7 @@ h1.addEventListener('mouseenter', alertH1);
 
 setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 
-// h1.onmouseenter = function (e) {
-//   alert('onmouseenter: Great! You are reading the heading :D');
-// };
+
 
 
 ///////////////////////////////////////
@@ -522,16 +536,7 @@ console.log(h1.parentElement.children);
 });
 
 ///////////////////////////////////////
-// Sticky navigation
-const initialCoords = section1.getBoundingClientRect();
-console.log(initialCoords);
 
-window.addEventListener('scroll', function () {
-  console.log(window.scrollY);
-
-  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
-  else nav.classList.remove('sticky');
-});
 
 ///////////////////////////////////////
 // Sticky navigation: Intersection Observer API
