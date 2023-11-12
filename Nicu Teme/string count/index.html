@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="string" oninput = "substraction()">
+    <p id= "maxLength"> 50 </p>
+    <p id="leftChar"> numarul de caractere ramase </p>
+
+    <script>
+        function substraction(){
+            // max length - input length = left char
+            let maxChar = document.getElementById("maxLength").innerText;
+            console.log(maxChar);
+            let input = document.getElementById("string").value;
+            if (input){
+                let inpuToCount = input.length;
+                console.log(inpuToCount);
+                let leftChar=maxChar-inpuToCount;
+                console.log(leftChar)
+                document.getElementById("leftChar").innerHTML= "Au mai ramas" + leftChar + "caractere!"
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>
