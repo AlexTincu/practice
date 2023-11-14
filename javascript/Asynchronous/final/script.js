@@ -21,8 +21,8 @@ const renderCountry = function (data, className = '') {
       <h3 class="country__name">${data.name.common}</h3>
       <h4 class="country__region">${data.region}</h4>
       <p class="country__row"><span>👫</span>${(
-        +data.population / 1000000
-      ).toFixed(1)} people</p>
+      +data.population / 1000000
+    ).toFixed(1)} people</p>
       <p class="country__row"><span>🗣️</span>${langName}</p>
       <p class="country__row"><span>💰</span>${currencyName}</p>
     </div>
@@ -35,6 +35,12 @@ const renderCountry = function (data, className = '') {
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
   countriesContainer.style.opacity = 1;
+};
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
 };
 
 const getJSON = function (url, errorMsg = 'Something went wrong') {
@@ -291,13 +297,16 @@ const whereAmI = function (lat, lng) {
 */
 ///////////////////////////////////////
 
-/* // The Event Loop in Practice
+/*
+// The Event Loop in Practice
 console.log('Test start');
-setTimeout(() => console.log('0 sec timer'), 0); // callbacks from timers are executed in callback queue, timers are not guaranteed
-Promise.resolve('Resolved promise 1').then(res => console.log(res)); // callbacks from promises are executed with priority, in microtasks queue
+// callbacks from timers are executed in callback queue, timers are not guaranteed
+setTimeout(() => console.log('0 sec timer'), 0);
 
+// callbacks from promises are executed with priority, in microtasks queue
+Promise.resolve('Resolved promise 1').then(res => console.log(res));
 Promise.resolve('Resolved promise 2').then(res => {
-  for (let i = 0; i < 1000000000; i++) {}
+  for (let i = 0; i < 10000000000; i++) { }
   console.log(res);
 });
 
@@ -330,18 +339,18 @@ lotteryPromise
 
 /* // Promisifying setTimeout
 
-setTimeout(() => {
-  console.log('1 second passed');
-  setTimeout(() => {
-    console.log('2 seconds passed');
-    setTimeout(() => {
-      console.log('3 second passed');
-      setTimeout(() => {
-        console.log('4 second passed');
-      }, 1000);
-    }, 1000);
-  }, 1000);
-}, 1000);
+// setTimeout(() => {
+//   console.log('1 second passed');
+//   setTimeout(() => {
+//     console.log('2 seconds passed');
+//     setTimeout(() => {
+//       console.log('3 second passed');
+//       setTimeout(() => {
+//         console.log('4 second passed');
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
 
 const wait = function (seconds) {
   return new Promise(function (resolve) {
@@ -370,7 +379,7 @@ Promise.reject(new Error('Problem!')).catch(x => console.error(x));
 
 ///////////////////////////////////////
 
-// Promisifying the Geolocation API
+/* // Promisifying the Geolocation API
 const getCurrentPosition = function () {
   return new Promise(function (resolve, reject) {
     // navigator.geolocation.getCurrentPosition(
@@ -411,6 +420,7 @@ const whereAmI = function () {
 };
 
 btn.addEventListener('click', whereAmI);
+*/
 
 ///////////////////////////////////////
 
@@ -420,11 +430,11 @@ Build the image loading functionality that I just showed you on the screen.
 Tasks are not super-descriptive this time, so that you can figure out some stuff on your own. Pretend you're working on your own 😉
 
 PART 1
-1. Create a function 'createImage' which receives imgPath as an input. 
-This function returns a promise which creates a new image (use document.createElement('img')) and sets 
-the .src attribute to the provided image path. When the image is done loading, append it to the DOM element 
-with the 'images' class, and resolve the promise. 
-The fulfilled value should be the image element itself. 
+1. Create a function 'createImage' which receives imgPath as an input.
+This function returns a promise which creates a new image (use document.createElement('img')) and sets
+the .src attribute to the provided image path. When the image is done loading, append it to the DOM element
+with the 'images' class, and resolve the promise.
+The fulfilled value should be the image element itself.
 In case there is an error loading the image ('error' event), reject the promise.
 
 If this part is too tricky for you, just watch the first part of the solution.
@@ -441,7 +451,7 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 GOOD LUCK 😀
 */
 
-/* // Solution for Coding Challenge #2
+/*// Solution for Coding Challenge #2
 
 const imgContainer = document.querySelector('.images');
 
@@ -502,8 +512,6 @@ const getCurrentPosition = function () {
   });
 };
 
-// fetch(`https://restcountries.com/v3.1/name/${country}`).then(res => console.log(res))
-
 const whereAmI = async function () {
   try {
     // Geolocation
@@ -511,7 +519,7 @@ const whereAmI = async function () {
     const { latitude: lat, longitude: lng } = pos.coords;
 
     // Reverse geocoding
-    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    const resGeo = await fetch(`https://geocode.maps.co/reverse?lat=${lat}&lon=${lng}`)
     if (!resGeo.ok) throw new Error('Problem getting location data');
 
     const dataGeo = await resGeo.json();
@@ -519,9 +527,9 @@ const whereAmI = async function () {
 
     // Country data
     const res = await fetch(
-      `https://restcountries.com/v3.1/name/${dataGeo.country}`
+      `https://restcountries.com/v3.1/name/${dataGeo.address.country}`
     );
-    
+
     if (!res.ok) throw new Error('Problem getting country');
 
     const data = await res.json();
@@ -536,8 +544,9 @@ whereAmI();
 whereAmI();
 whereAmI();
 console.log('FIRST');
+*/
 
-
+/*
 try {
   let y = 1;
   const x = 2;
@@ -554,7 +563,7 @@ try {
 /* // Returning Values from Async Functions
 const getCurrentPosition = function () {
   return new Promise(function (resolve, reject) {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
+    return navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 };
 
@@ -576,10 +585,6 @@ const whereAmI = async function () {
 
     // Reverse geocoding
     const dataGeo = await getCountryByCoords(lat, lng);
-    // const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-    // if (!resGeo.ok) throw new Error('Problem getting location data');
-    // const dataGeo = await resGeo.json();
-    // console.log(dataGeo);
 
     // Country data
     const res = await fetch(
@@ -603,11 +608,11 @@ console.log('1: Will get location');
 const city = whereAmI();
 console.log(city);
 
-// whereAmI()
-//   .then(city => console.log(`2: ${city}`))
-//   .catch(err => console.error(`2: ${err.message} 💥`))
-//   .finally(() => console.log('3: Finished getting location'));
- 
+whereAmI()
+  .then(city => console.log(`2: ${city}`))
+  .catch(err => console.error(`2: ${err.message} 💥`))
+  .finally(() => console.log('3: Finished getting location'));
+
 (async function () {
   try {
     const city = await whereAmI();
@@ -618,16 +623,25 @@ console.log(city);
   console.log('3: Finished getting location');
 })();
 
-*/
+ */
 
 ///////////////////////////////////////
-/* // Running Promises in Parallel
+
+/*// Running Promises in Parallel
+// daca toate sunt rezolate, atunci vom avea un array cu toate rezultatele cerute,
+// altfel vom avea eroare
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
 const get3Countries = async function (c1, c2, c3) {
   try {
     // const [data1] = await getJSON(`https://restcountries.com/v3.1/name/${c1}`);
     // const [data2] = await getJSON(`https://restcountries.com/v3.1/name/${c2}`);
     // const [data3] = await getJSON(`https://restcountries.com/v3.1/name/${c3}`);
-    // console.log([data1.capital, data2.capital, data3.capital]);
 
     const data = await Promise.all([
       getJSON(`https://restcountries.com/v3.1/name/${c1}`),
@@ -639,19 +653,21 @@ const get3Countries = async function (c1, c2, c3) {
     console.error(err);
   }
 };
-get3Countries('portugal', 'canada', 'tanzania');
+get3Countries('portugal', 'canadass', 'tanzania');
 */
 
 ///////////////////////////////////////
-/* // Other Promise Combinators: race, allSettled and any
-// Promise.race
+// Other Promise Combinators: race, allSettled and any
+
+/* // Promise.race
+// se opreste cand are un rezultat settled (fulfilled sau rejected) si-l returneaza
 (async function () {
   const res = await Promise.race([
     getJSON(`https://restcountries.com/v3.1/name/italy`),
     getJSON(`https://restcountries.com/v3.1/name/egypt`),
     getJSON(`https://restcountries.com/v3.1/name/mexico`),
   ]);
-  console.log(res[0]);
+  // console.log(res[0]);
 })();
 
 const timeout = function (sec) {
@@ -662,20 +678,36 @@ const timeout = function (sec) {
   });
 };
 
+// Folosim Promise.race, spre exemplu, pentru situatiile in care vrem sa limitam timpul de asteptare dupa un promise.
+// daca nu raspunde in timp util, renuntam la rezultat si consideram ca avem o eroare
 Promise.race([
   getJSON(`https://restcountries.com/v3.1/name/tanzania`),
-  timeout(5),
+  timeout(3),
 ])
   .then(res => console.log(res[0]))
   .catch(err => console.error(err));
 
-// Promise.allSettled
-Promise.allSettled([
-  Promise.resolve('Success'),
-  Promise.reject('ERROR'),
-  Promise.resolve('Another success'),
-]).then(res => console.log(res));
+*/
 
+// Promise.allSettled
+// returneaza rezultatul fiecarui promise, fulfilled sau rejected, nu conteaza.
+
+// Promise.allSettled([
+//   Promise.resolve('Success'),
+//   Promise.reject('ERROR'),
+//   Promise.resolve('Another success'),
+// ]).then(res => console.log(res));
+
+
+// Promise.allSettled([
+//   getJSON(`https://restcountries.com/v3.1/name/tanzania`),
+//   getJSON(`https://restcountries.com/v3.1/name/xxyyy`),
+//   getJSON(`https://restcountries.com/v3.1/name/italy`),
+// ]).then(res => console.log(res));
+
+// Promise.all
+// ori toate, ori eroare (catch)
+/*
 Promise.all([
   Promise.resolve('Success'),
   Promise.reject('ERROR'),
@@ -683,8 +715,12 @@ Promise.all([
 ])
   .then(res => console.log(res))
   .catch(err => console.error(err));
+ */
 
 // Promise.any [ES2021]
+// daca cel putin una din ele este fulfilled, acea este rezultatul,
+// daca nu, catch se executa
+/*
 Promise.any([
   Promise.resolve('Success'),
   Promise.reject('ERROR'),
@@ -693,13 +729,13 @@ Promise.any([
   .then(res => console.log(res))
   .catch(err => console.error(err));
 */
-
 ///////////////////////////////////////
 
 /* // Coding Challenge #3
-/* 
+
 PART 1
-Write an async function 'loadNPause' that recreates Coding Challenge #2, this time using async/await (only the part where the promise is consumed). Compare the two versions, think about the big differences, and see which one you like more.
+Write an async function 'loadNPause' that recreates Coding Challenge #2, this time using async/await 
+(only the part where the promise is consumed). Compare the two versions, think about the big differences, and see which one you like more.
 Don't forget to test the error handler, and to set the network speed to 'Fast 3G' in the dev tools Network tab.
 
 PART 2
@@ -714,12 +750,7 @@ TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn of
 GOOD LUCK 😀
 */
 
-/* // Solution for Coding Challenge #3
-const wait = function (seconds) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, seconds * 1000);
-  });
-};
+// Solution for Coding Challenge #3
 
 const imgContainer = document.querySelector('.images');
 
@@ -740,6 +771,7 @@ const createImage = function (imgPath) {
 };
 
 let currentImg;
+let currentImg2;
 
 // createImage('img/img-1.jpg')
 //   .then(img => {
@@ -761,36 +793,45 @@ let currentImg;
 //   })
 //   .catch(err => console.error(err));
 
-// PART 1
+/*// PART 1
 const loadNPause = async function () {
   try {
-    // Load image 1
-    let img = await createImage('img/img-1.jpg');
-    console.log('Image 1 loaded');
+    currentImg = await createImage('img/img-1.jpg'); // Load image 1
     await wait(2);
-    img.style.display = 'none';
 
-    // Load image 1
-    img = await createImage('img/img-2.jpg');
-    console.log('Image 2 loaded');
+    currentImg2 = await createImage('img/img-2.jpg'); // Load image 2
+    currentImg.style.display = 'none';
     await wait(2);
-    img.style.display = 'none';
+
+    currentImg2.style.display = 'none';
   } catch (err) {
     console.error(err);
   }
-};
-// loadNPause();
+}
+loadNPause();
+*/
 
 // PART 2
+
+let sec = 0;
+const timer = setInterval(() => {
+  console.log(++sec);
+}, 1000);
+
 const loadAll = async function (imgArr) {
   try {
     const imgs = imgArr.map(async img => await createImage(img));
+
+    console.log(imgs);
     const imgsEl = await Promise.all(imgs);
     console.log(imgsEl);
     imgsEl.forEach(img => img.classList.add('parallel'));
+
   } catch (err) {
     console.error(err);
+  } finally {
+    clearInterval(timer);
   }
 };
+
 loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']);
-*/
